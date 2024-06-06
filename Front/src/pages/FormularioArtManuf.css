@@ -1,0 +1,43 @@
+.formulario-art-manuf {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formulario-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .formulario-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formulario-row {
+    margin-bottom: 15px;
+  }
+  
+  .formulario-row .col,
+  .formulario-row .row {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  
+  .agregar-insumo-button {
+    width: auto;
+    padding: 10px 20px;
+  }
+  
+  .text-danger {
+    text-align: center;
+  }
+  
