@@ -20,8 +20,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-06-07T12:12:05-0300",
-    comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.7.jar, environment: Java 17.0.10 (Oracle Corporation)"
+    date = "2024-06-07T12:39:14-0300",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.38.0.v20240524-2033, environment: Java 17.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
@@ -37,18 +37,18 @@ public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
 
         ArticuloInsumoDto.ArticuloInsumoDtoBuilder<?, ?> articuloInsumoDto = ArticuloInsumoDto.builder();
 
-        articuloInsumoDto.id( source.getId() );
         articuloInsumoDto.alta( source.isAlta() );
-        articuloInsumoDto.denominacion( source.getDenominacion() );
-        articuloInsumoDto.precioVenta( source.getPrecioVenta() );
-        articuloInsumoDto.imagenes( imagenSetToImagenDtoSet( source.getImagenes() ) );
-        articuloInsumoDto.unidadMedida( unidadMedidaToUnidadMedidaDto( source.getUnidadMedida() ) );
+        articuloInsumoDto.id( source.getId() );
         articuloInsumoDto.categoria( categoriaToCategoriaDto( source.getCategoria() ) );
+        articuloInsumoDto.denominacion( source.getDenominacion() );
+        articuloInsumoDto.imagenes( imagenSetToImagenDtoSet( source.getImagenes() ) );
+        articuloInsumoDto.precioVenta( source.getPrecioVenta() );
         articuloInsumoDto.promocionDetalle( promocionDetalleSetToPromocionDetalleDtoSet( source.getPromocionDetalle() ) );
+        articuloInsumoDto.unidadMedida( unidadMedidaToUnidadMedidaDto( source.getUnidadMedida() ) );
+        articuloInsumoDto.esParaElaborar( source.getEsParaElaborar() );
         articuloInsumoDto.precioCompra( source.getPrecioCompra() );
         articuloInsumoDto.stockActual( source.getStockActual() );
         articuloInsumoDto.stockMaximo( source.getStockMaximo() );
-        articuloInsumoDto.esParaElaborar( source.getEsParaElaborar() );
 
         return articuloInsumoDto.build();
     }
@@ -61,20 +61,20 @@ public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
 
         ArticuloInsumo.ArticuloInsumoBuilder<?, ?> articuloInsumo = ArticuloInsumo.builder();
 
-        articuloInsumo.id( source.getId() );
         if ( source.getAlta() != null ) {
             articuloInsumo.alta( source.getAlta() );
         }
-        articuloInsumo.denominacion( source.getDenominacion() );
-        articuloInsumo.precioVenta( source.getPrecioVenta() );
-        articuloInsumo.imagenes( imagenDtoSetToImagenSet( source.getImagenes() ) );
-        articuloInsumo.unidadMedida( unidadMedidaDtoToUnidadMedida( source.getUnidadMedida() ) );
+        articuloInsumo.id( source.getId() );
         articuloInsumo.categoria( categoriaDtoToCategoria( source.getCategoria() ) );
+        articuloInsumo.denominacion( source.getDenominacion() );
+        articuloInsumo.imagenes( imagenDtoSetToImagenSet( source.getImagenes() ) );
+        articuloInsumo.precioVenta( source.getPrecioVenta() );
         articuloInsumo.promocionDetalle( promocionDetalleDtoSetToPromocionDetalleSet( source.getPromocionDetalle() ) );
+        articuloInsumo.unidadMedida( unidadMedidaDtoToUnidadMedida( source.getUnidadMedida() ) );
+        articuloInsumo.esParaElaborar( source.getEsParaElaborar() );
         articuloInsumo.precioCompra( source.getPrecioCompra() );
         articuloInsumo.stockActual( source.getStockActual() );
         articuloInsumo.stockMaximo( source.getStockMaximo() );
-        articuloInsumo.esParaElaborar( source.getEsParaElaborar() );
 
         return articuloInsumo.build();
     }
@@ -107,6 +107,20 @@ public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
         return list;
     }
 
+    protected CategoriaDto categoriaToCategoriaDto(Categoria categoria) {
+        if ( categoria == null ) {
+            return null;
+        }
+
+        CategoriaDto.CategoriaDtoBuilder<?, ?> categoriaDto = CategoriaDto.builder();
+
+        categoriaDto.alta( categoria.isAlta() );
+        categoriaDto.id( categoria.getId() );
+        categoriaDto.denominacion( categoria.getDenominacion() );
+
+        return categoriaDto.build();
+    }
+
     protected ImagenDto imagenToImagenDto(Imagen imagen) {
         if ( imagen == null ) {
             return null;
@@ -114,8 +128,8 @@ public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
 
         ImagenDto.ImagenDtoBuilder<?, ?> imagenDto = ImagenDto.builder();
 
-        imagenDto.id( imagen.getId() );
         imagenDto.alta( imagen.isAlta() );
+        imagenDto.id( imagen.getId() );
         imagenDto.url( imagen.getUrl() );
 
         return imagenDto.build();
@@ -134,34 +148,6 @@ public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
         return set1;
     }
 
-    protected UnidadMedidaDto unidadMedidaToUnidadMedidaDto(UnidadMedida unidadMedida) {
-        if ( unidadMedida == null ) {
-            return null;
-        }
-
-        UnidadMedidaDto.UnidadMedidaDtoBuilder<?, ?> unidadMedidaDto = UnidadMedidaDto.builder();
-
-        unidadMedidaDto.id( unidadMedida.getId() );
-        unidadMedidaDto.alta( unidadMedida.isAlta() );
-        unidadMedidaDto.denominacion( unidadMedida.getDenominacion() );
-
-        return unidadMedidaDto.build();
-    }
-
-    protected CategoriaDto categoriaToCategoriaDto(Categoria categoria) {
-        if ( categoria == null ) {
-            return null;
-        }
-
-        CategoriaDto.CategoriaDtoBuilder<?, ?> categoriaDto = CategoriaDto.builder();
-
-        categoriaDto.id( categoria.getId() );
-        categoriaDto.alta( categoria.isAlta() );
-        categoriaDto.denominacion( categoria.getDenominacion() );
-
-        return categoriaDto.build();
-    }
-
     protected Set<PromocionDetalleDto> promocionDetalleSetToPromocionDetalleDtoSet(Set<PromocionDetalle> set) {
         if ( set == null ) {
             return null;
@@ -175,6 +161,36 @@ public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
         return set1;
     }
 
+    protected UnidadMedidaDto unidadMedidaToUnidadMedidaDto(UnidadMedida unidadMedida) {
+        if ( unidadMedida == null ) {
+            return null;
+        }
+
+        UnidadMedidaDto.UnidadMedidaDtoBuilder<?, ?> unidadMedidaDto = UnidadMedidaDto.builder();
+
+        unidadMedidaDto.alta( unidadMedida.isAlta() );
+        unidadMedidaDto.id( unidadMedida.getId() );
+        unidadMedidaDto.denominacion( unidadMedida.getDenominacion() );
+
+        return unidadMedidaDto.build();
+    }
+
+    protected Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto) {
+        if ( categoriaDto == null ) {
+            return null;
+        }
+
+        Categoria.CategoriaBuilder<?, ?> categoria = Categoria.builder();
+
+        if ( categoriaDto.getAlta() != null ) {
+            categoria.alta( categoriaDto.getAlta() );
+        }
+        categoria.id( categoriaDto.getId() );
+        categoria.denominacion( categoriaDto.getDenominacion() );
+
+        return categoria.build();
+    }
+
     protected Imagen imagenDtoToImagen(ImagenDto imagenDto) {
         if ( imagenDto == null ) {
             return null;
@@ -182,10 +198,10 @@ public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
 
         Imagen.ImagenBuilder<?, ?> imagen = Imagen.builder();
 
-        imagen.id( imagenDto.getId() );
         if ( imagenDto.getAlta() != null ) {
             imagen.alta( imagenDto.getAlta() );
         }
+        imagen.id( imagenDto.getId() );
         imagen.url( imagenDto.getUrl() );
 
         return imagen.build();
@@ -204,38 +220,6 @@ public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
         return set1;
     }
 
-    protected UnidadMedida unidadMedidaDtoToUnidadMedida(UnidadMedidaDto unidadMedidaDto) {
-        if ( unidadMedidaDto == null ) {
-            return null;
-        }
-
-        UnidadMedida.UnidadMedidaBuilder<?, ?> unidadMedida = UnidadMedida.builder();
-
-        unidadMedida.id( unidadMedidaDto.getId() );
-        if ( unidadMedidaDto.getAlta() != null ) {
-            unidadMedida.alta( unidadMedidaDto.getAlta() );
-        }
-        unidadMedida.denominacion( unidadMedidaDto.getDenominacion() );
-
-        return unidadMedida.build();
-    }
-
-    protected Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto) {
-        if ( categoriaDto == null ) {
-            return null;
-        }
-
-        Categoria.CategoriaBuilder<?, ?> categoria = Categoria.builder();
-
-        categoria.id( categoriaDto.getId() );
-        if ( categoriaDto.getAlta() != null ) {
-            categoria.alta( categoriaDto.getAlta() );
-        }
-        categoria.denominacion( categoriaDto.getDenominacion() );
-
-        return categoria.build();
-    }
-
     protected Set<PromocionDetalle> promocionDetalleDtoSetToPromocionDetalleSet(Set<PromocionDetalleDto> set) {
         if ( set == null ) {
             return null;
@@ -247,5 +231,21 @@ public class IArticuloInsumoMapperImpl implements IArticuloInsumoMapper {
         }
 
         return set1;
+    }
+
+    protected UnidadMedida unidadMedidaDtoToUnidadMedida(UnidadMedidaDto unidadMedidaDto) {
+        if ( unidadMedidaDto == null ) {
+            return null;
+        }
+
+        UnidadMedida.UnidadMedidaBuilder<?, ?> unidadMedida = UnidadMedida.builder();
+
+        if ( unidadMedidaDto.getAlta() != null ) {
+            unidadMedida.alta( unidadMedidaDto.getAlta() );
+        }
+        unidadMedida.id( unidadMedidaDto.getId() );
+        unidadMedida.denominacion( unidadMedidaDto.getDenominacion() );
+
+        return unidadMedida.build();
     }
 }

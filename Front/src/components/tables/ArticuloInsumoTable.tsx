@@ -91,7 +91,7 @@ export default function ArticuloInsumoTable() {
 
     return (
         <div className="container">
-            <Button classes="mt-4 mb-3" color="#4CAF50" size={25} icon={CiCirclePlus} text="Nuevo Ingrediente" onClick={() =>
+            <Button classes="mt-4 mb-3" color="#50C878" size={25} icon={CiCirclePlus} text="Nuevo Ingrediente" onClick={() =>
                 handleClick(
                     "Nuevo Producto",
                     articuloInsumo,

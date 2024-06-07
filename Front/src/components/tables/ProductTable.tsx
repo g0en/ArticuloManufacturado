@@ -124,7 +124,7 @@ export default function ProductTable() {
   
   return (
     <div className="container">
-      <CustomButton classes="mt-4 mb-3" color="#4CAF50" size={25} icon={CiCirclePlus} text="Nuevo Producto" onClick={() =>
+      <CustomButton classes="mt-4 mb-3" color="#50C878" size={25} icon={CiCirclePlus} text="Nuevo Producto" onClick={() =>
         handleClick(0)}
       />
       

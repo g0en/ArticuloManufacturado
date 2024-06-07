@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-06-07T12:12:06-0300",
-    comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.7.jar, environment: Java 17.0.10 (Oracle Corporation)"
+    date = "2024-06-07T12:39:14-0300",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.38.0.v20240524-2033, environment: Java 17.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class IEmpresaMapperImpl implements IEmpresaMapper {
@@ -23,11 +23,11 @@ public class IEmpresaMapperImpl implements IEmpresaMapper {
 
         EmpresaDto.EmpresaDtoBuilder<?, ?> empresaDto = EmpresaDto.builder();
 
-        empresaDto.id( source.getId() );
         empresaDto.alta( source.isAlta() );
+        empresaDto.id( source.getId() );
+        empresaDto.cuil( source.getCuil() );
         empresaDto.nombre( source.getNombre() );
         empresaDto.razonSocial( source.getRazonSocial() );
-        empresaDto.cuil( source.getCuil() );
 
         return empresaDto.build();
     }
@@ -40,13 +40,13 @@ public class IEmpresaMapperImpl implements IEmpresaMapper {
 
         Empresa.EmpresaBuilder<?, ?> empresa = Empresa.builder();
 
-        empresa.id( source.getId() );
         if ( source.getAlta() != null ) {
             empresa.alta( source.getAlta() );
         }
+        empresa.id( source.getId() );
+        empresa.cuil( source.getCuil() );
         empresa.nombre( source.getNombre() );
         empresa.razonSocial( source.getRazonSocial() );
-        empresa.cuil( source.getCuil() );
 
         return empresa.build();
     }

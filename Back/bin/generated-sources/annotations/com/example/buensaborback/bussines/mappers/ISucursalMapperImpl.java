@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-06-07T12:12:05-0300",
-    comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.7.jar, environment: Java 17.0.10 (Oracle Corporation)"
+    date = "2024-06-07T12:39:14-0300",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.38.0.v20240524-2033, environment: Java 17.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class ISucursalMapperImpl implements ISucursalMapper {
@@ -27,16 +27,16 @@ public class ISucursalMapperImpl implements ISucursalMapper {
 
         SucursalDto.SucursalDtoBuilder<?, ?> sucursalDto = SucursalDto.builder();
 
-        sucursalDto.id( source.getId() );
         sucursalDto.alta( source.isAlta() );
-        sucursalDto.nombre( source.getNombre() );
+        sucursalDto.id( source.getId() );
+        sucursalDto.empresa( empresaToEmpresaDto( source.getEmpresa() ) );
         if ( source.getHorarioApertura() != null ) {
             sucursalDto.horarioApertura( DateTimeFormatter.ISO_LOCAL_TIME.format( source.getHorarioApertura() ) );
         }
         if ( source.getHorarioCierre() != null ) {
             sucursalDto.horarioCierre( DateTimeFormatter.ISO_LOCAL_TIME.format( source.getHorarioCierre() ) );
         }
-        sucursalDto.empresa( empresaToEmpresaDto( source.getEmpresa() ) );
+        sucursalDto.nombre( source.getNombre() );
 
         return sucursalDto.build();
     }
@@ -49,18 +49,18 @@ public class ISucursalMapperImpl implements ISucursalMapper {
 
         Sucursal.SucursalBuilder<?, ?> sucursal = Sucursal.builder();
 
-        sucursal.id( source.getId() );
         if ( source.getAlta() != null ) {
             sucursal.alta( source.getAlta() );
         }
-        sucursal.nombre( source.getNombre() );
+        sucursal.id( source.getId() );
+        sucursal.empresa( empresaDtoToEmpresa( source.getEmpresa() ) );
         if ( source.getHorarioApertura() != null ) {
             sucursal.horarioApertura( LocalTime.parse( source.getHorarioApertura() ) );
         }
         if ( source.getHorarioCierre() != null ) {
             sucursal.horarioCierre( LocalTime.parse( source.getHorarioCierre() ) );
         }
-        sucursal.empresa( empresaDtoToEmpresa( source.getEmpresa() ) );
+        sucursal.nombre( source.getNombre() );
 
         return sucursal.build();
     }
@@ -100,11 +100,11 @@ public class ISucursalMapperImpl implements ISucursalMapper {
 
         EmpresaDto.EmpresaDtoBuilder<?, ?> empresaDto = EmpresaDto.builder();
 
-        empresaDto.id( empresa.getId() );
         empresaDto.alta( empresa.isAlta() );
+        empresaDto.id( empresa.getId() );
+        empresaDto.cuil( empresa.getCuil() );
         empresaDto.nombre( empresa.getNombre() );
         empresaDto.razonSocial( empresa.getRazonSocial() );
-        empresaDto.cuil( empresa.getCuil() );
 
         return empresaDto.build();
     }
@@ -116,13 +116,13 @@ public class ISucursalMapperImpl implements ISucursalMapper {
 
         Empresa.EmpresaBuilder<?, ?> empresa = Empresa.builder();
 
-        empresa.id( empresaDto.getId() );
         if ( empresaDto.getAlta() != null ) {
             empresa.alta( empresaDto.getAlta() );
         }
+        empresa.id( empresaDto.getId() );
+        empresa.cuil( empresaDto.getCuil() );
         empresa.nombre( empresaDto.getNombre() );
         empresa.razonSocial( empresaDto.getRazonSocial() );
-        empresa.cuil( empresaDto.getCuil() );
 
         return empresa.build();
     }

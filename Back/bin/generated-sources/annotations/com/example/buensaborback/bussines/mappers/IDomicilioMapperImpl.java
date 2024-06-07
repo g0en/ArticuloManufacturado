@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-06-07T12:12:06-0300",
-    comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.7.jar, environment: Java 17.0.10 (Oracle Corporation)"
+    date = "2024-06-07T12:39:14-0300",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.38.0.v20240524-2033, environment: Java 17.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class IDomicilioMapperImpl implements IDomicilioMapper {
@@ -29,11 +29,11 @@ public class IDomicilioMapperImpl implements IDomicilioMapper {
         domicilioFullDto.localidad( sourceLocalidadNombre( source ) );
         domicilioFullDto.provincia( sourceLocalidadProvinciaNombre( source ) );
         domicilioFullDto.pais( sourceLocalidadProvinciaPaisNombre( source ) );
-        domicilioFullDto.id( source.getId() );
         domicilioFullDto.alta( source.isAlta() );
+        domicilioFullDto.id( source.getId() );
         domicilioFullDto.calle( source.getCalle() );
-        domicilioFullDto.numero( source.getNumero() );
         domicilioFullDto.cp( source.getCp() );
+        domicilioFullDto.numero( source.getNumero() );
 
         return domicilioFullDto.build();
     }
@@ -47,13 +47,13 @@ public class IDomicilioMapperImpl implements IDomicilioMapper {
         Domicilio.DomicilioBuilder<?, ?> domicilio = Domicilio.builder();
 
         domicilio.localidad( domicilioFullDtoToLocalidad( source ) );
-        domicilio.id( source.getId() );
         if ( source.getAlta() != null ) {
             domicilio.alta( source.getAlta() );
         }
+        domicilio.id( source.getId() );
         domicilio.calle( source.getCalle() );
-        domicilio.numero( source.getNumero() );
         domicilio.cp( source.getCp() );
+        domicilio.numero( source.getNumero() );
 
         return domicilio.build();
     }

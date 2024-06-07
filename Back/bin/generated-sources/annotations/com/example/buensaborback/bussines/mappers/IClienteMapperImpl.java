@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-06-07T12:12:06-0300",
-    comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.7.jar, environment: Java 17.0.10 (Oracle Corporation)"
+    date = "2024-06-07T12:39:13-0300",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.38.0.v20240524-2033, environment: Java 17.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class IClienteMapperImpl implements IClienteMapper {
@@ -33,14 +33,14 @@ public class IClienteMapperImpl implements IClienteMapper {
         ClienteFullDto.ClienteFullDtoBuilder<?, ?> clienteFullDto = ClienteFullDto.builder();
 
         clienteFullDto.imagen( sourceImagenUrl( source ) );
-        clienteFullDto.id( source.getId() );
         clienteFullDto.alta( source.isAlta() );
-        clienteFullDto.nombre( source.getNombre() );
+        clienteFullDto.id( source.getId() );
         clienteFullDto.apellido( source.getApellido() );
-        clienteFullDto.telefono( source.getTelefono() );
+        clienteFullDto.domicilios( domicilioSetToDomicilioFullDtoList( source.getDomicilios() ) );
         clienteFullDto.email( source.getEmail() );
         clienteFullDto.fechaNacimiento( source.getFechaNacimiento() );
-        clienteFullDto.domicilios( domicilioSetToDomicilioFullDtoList( source.getDomicilios() ) );
+        clienteFullDto.nombre( source.getNombre() );
+        clienteFullDto.telefono( source.getTelefono() );
 
         return clienteFullDto.build();
     }
@@ -54,16 +54,16 @@ public class IClienteMapperImpl implements IClienteMapper {
         Cliente.ClienteBuilder<?, ?> cliente = Cliente.builder();
 
         cliente.imagen( clienteFullDtoToImagen( source ) );
-        cliente.id( source.getId() );
         if ( source.getAlta() != null ) {
             cliente.alta( source.getAlta() );
         }
-        cliente.nombre( source.getNombre() );
+        cliente.id( source.getId() );
         cliente.apellido( source.getApellido() );
-        cliente.telefono( source.getTelefono() );
+        cliente.domicilios( domicilioFullDtoListToDomicilioSet( source.getDomicilios() ) );
         cliente.email( source.getEmail() );
         cliente.fechaNacimiento( source.getFechaNacimiento() );
-        cliente.domicilios( domicilioFullDtoListToDomicilioSet( source.getDomicilios() ) );
+        cliente.nombre( source.getNombre() );
+        cliente.telefono( source.getTelefono() );
 
         return cliente.build();
     }

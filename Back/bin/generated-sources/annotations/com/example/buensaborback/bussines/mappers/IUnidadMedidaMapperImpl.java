@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-06-07T12:12:05-0300",
-    comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.7.jar, environment: Java 17.0.10 (Oracle Corporation)"
+    date = "2024-06-07T12:39:14-0300",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.38.0.v20240524-2033, environment: Java 17.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class IUnidadMedidaMapperImpl implements IUnidadMedidaMapper {
@@ -23,8 +23,8 @@ public class IUnidadMedidaMapperImpl implements IUnidadMedidaMapper {
 
         UnidadMedidaDto.UnidadMedidaDtoBuilder<?, ?> unidadMedidaDto = UnidadMedidaDto.builder();
 
-        unidadMedidaDto.id( source.getId() );
         unidadMedidaDto.alta( source.isAlta() );
+        unidadMedidaDto.id( source.getId() );
         unidadMedidaDto.denominacion( source.getDenominacion() );
 
         return unidadMedidaDto.build();
@@ -38,10 +38,10 @@ public class IUnidadMedidaMapperImpl implements IUnidadMedidaMapper {
 
         UnidadMedida.UnidadMedidaBuilder<?, ?> unidadMedida = UnidadMedida.builder();
 
-        unidadMedida.id( source.getId() );
         if ( source.getAlta() != null ) {
             unidadMedida.alta( source.getAlta() );
         }
+        unidadMedida.id( source.getId() );
         unidadMedida.denominacion( source.getDenominacion() );
 
         return unidadMedida.build();

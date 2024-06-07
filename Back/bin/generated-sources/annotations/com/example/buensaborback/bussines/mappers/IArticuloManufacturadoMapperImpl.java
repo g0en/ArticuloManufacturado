@@ -22,8 +22,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-06-07T12:12:05-0300",
-    comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.7.jar, environment: Java 17.0.10 (Oracle Corporation)"
+    date = "2024-06-07T12:39:14-0300",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.38.0.v20240524-2033, environment: Java 17.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoMapper {
@@ -41,18 +41,18 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
 
         ArticuloManufacturadoDto.ArticuloManufacturadoDtoBuilder<?, ?> articuloManufacturadoDto = ArticuloManufacturadoDto.builder();
 
-        articuloManufacturadoDto.id( source.getId() );
         articuloManufacturadoDto.alta( source.isAlta() );
-        articuloManufacturadoDto.denominacion( source.getDenominacion() );
-        articuloManufacturadoDto.precioVenta( source.getPrecioVenta() );
-        articuloManufacturadoDto.imagenes( imagenSetToImagenDtoSet( source.getImagenes() ) );
-        articuloManufacturadoDto.unidadMedida( unidadMedidaToUnidadMedidaDto( source.getUnidadMedida() ) );
+        articuloManufacturadoDto.id( source.getId() );
         articuloManufacturadoDto.categoria( categoriaToCategoriaDto( source.getCategoria() ) );
+        articuloManufacturadoDto.denominacion( source.getDenominacion() );
+        articuloManufacturadoDto.imagenes( imagenSetToImagenDtoSet( source.getImagenes() ) );
+        articuloManufacturadoDto.precioVenta( source.getPrecioVenta() );
         articuloManufacturadoDto.promocionDetalle( promocionDetalleSetToPromocionDetalleDtoSet( source.getPromocionDetalle() ) );
-        articuloManufacturadoDto.descripcion( source.getDescripcion() );
-        articuloManufacturadoDto.tiempoEstimadoMinutos( source.getTiempoEstimadoMinutos() );
-        articuloManufacturadoDto.preparacion( source.getPreparacion() );
+        articuloManufacturadoDto.unidadMedida( unidadMedidaToUnidadMedidaDto( source.getUnidadMedida() ) );
         articuloManufacturadoDto.articuloManufacturadoDetalles( articuloManufacturadoDetalleSetToArticuloManufacturadoDetalleDtoSet( source.getArticuloManufacturadoDetalles() ) );
+        articuloManufacturadoDto.descripcion( source.getDescripcion() );
+        articuloManufacturadoDto.preparacion( source.getPreparacion() );
+        articuloManufacturadoDto.tiempoEstimadoMinutos( source.getTiempoEstimadoMinutos() );
 
         return articuloManufacturadoDto.build();
     }
@@ -65,20 +65,20 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
 
         ArticuloManufacturado.ArticuloManufacturadoBuilder<?, ?> articuloManufacturado = ArticuloManufacturado.builder();
 
-        articuloManufacturado.id( source.getId() );
         if ( source.getAlta() != null ) {
             articuloManufacturado.alta( source.getAlta() );
         }
-        articuloManufacturado.denominacion( source.getDenominacion() );
-        articuloManufacturado.precioVenta( source.getPrecioVenta() );
-        articuloManufacturado.imagenes( imagenDtoSetToImagenSet( source.getImagenes() ) );
-        articuloManufacturado.unidadMedida( unidadMedidaDtoToUnidadMedida( source.getUnidadMedida() ) );
+        articuloManufacturado.id( source.getId() );
         articuloManufacturado.categoria( categoriaDtoToCategoria( source.getCategoria() ) );
+        articuloManufacturado.denominacion( source.getDenominacion() );
+        articuloManufacturado.imagenes( imagenDtoSetToImagenSet( source.getImagenes() ) );
+        articuloManufacturado.precioVenta( source.getPrecioVenta() );
         articuloManufacturado.promocionDetalle( promocionDetalleDtoSetToPromocionDetalleSet( source.getPromocionDetalle() ) );
-        articuloManufacturado.descripcion( source.getDescripcion() );
-        articuloManufacturado.tiempoEstimadoMinutos( source.getTiempoEstimadoMinutos() );
-        articuloManufacturado.preparacion( source.getPreparacion() );
+        articuloManufacturado.unidadMedida( unidadMedidaDtoToUnidadMedida( source.getUnidadMedida() ) );
         articuloManufacturado.articuloManufacturadoDetalles( articuloManufacturadoDetalleDtoSetToArticuloManufacturadoDetalleSet( source.getArticuloManufacturadoDetalles() ) );
+        articuloManufacturado.descripcion( source.getDescripcion() );
+        articuloManufacturado.preparacion( source.getPreparacion() );
+        articuloManufacturado.tiempoEstimadoMinutos( source.getTiempoEstimadoMinutos() );
 
         return articuloManufacturado.build();
     }
@@ -111,6 +111,20 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
         return list;
     }
 
+    protected CategoriaDto categoriaToCategoriaDto(Categoria categoria) {
+        if ( categoria == null ) {
+            return null;
+        }
+
+        CategoriaDto.CategoriaDtoBuilder<?, ?> categoriaDto = CategoriaDto.builder();
+
+        categoriaDto.alta( categoria.isAlta() );
+        categoriaDto.id( categoria.getId() );
+        categoriaDto.denominacion( categoria.getDenominacion() );
+
+        return categoriaDto.build();
+    }
+
     protected ImagenDto imagenToImagenDto(Imagen imagen) {
         if ( imagen == null ) {
             return null;
@@ -118,8 +132,8 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
 
         ImagenDto.ImagenDtoBuilder<?, ?> imagenDto = ImagenDto.builder();
 
-        imagenDto.id( imagen.getId() );
         imagenDto.alta( imagen.isAlta() );
+        imagenDto.id( imagen.getId() );
         imagenDto.url( imagen.getUrl() );
 
         return imagenDto.build();
@@ -138,34 +152,6 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
         return set1;
     }
 
-    protected UnidadMedidaDto unidadMedidaToUnidadMedidaDto(UnidadMedida unidadMedida) {
-        if ( unidadMedida == null ) {
-            return null;
-        }
-
-        UnidadMedidaDto.UnidadMedidaDtoBuilder<?, ?> unidadMedidaDto = UnidadMedidaDto.builder();
-
-        unidadMedidaDto.id( unidadMedida.getId() );
-        unidadMedidaDto.alta( unidadMedida.isAlta() );
-        unidadMedidaDto.denominacion( unidadMedida.getDenominacion() );
-
-        return unidadMedidaDto.build();
-    }
-
-    protected CategoriaDto categoriaToCategoriaDto(Categoria categoria) {
-        if ( categoria == null ) {
-            return null;
-        }
-
-        CategoriaDto.CategoriaDtoBuilder<?, ?> categoriaDto = CategoriaDto.builder();
-
-        categoriaDto.id( categoria.getId() );
-        categoriaDto.alta( categoria.isAlta() );
-        categoriaDto.denominacion( categoria.getDenominacion() );
-
-        return categoriaDto.build();
-    }
-
     protected Set<PromocionDetalleDto> promocionDetalleSetToPromocionDetalleDtoSet(Set<PromocionDetalle> set) {
         if ( set == null ) {
             return null;
@@ -179,6 +165,20 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
         return set1;
     }
 
+    protected UnidadMedidaDto unidadMedidaToUnidadMedidaDto(UnidadMedida unidadMedida) {
+        if ( unidadMedida == null ) {
+            return null;
+        }
+
+        UnidadMedidaDto.UnidadMedidaDtoBuilder<?, ?> unidadMedidaDto = UnidadMedidaDto.builder();
+
+        unidadMedidaDto.alta( unidadMedida.isAlta() );
+        unidadMedidaDto.id( unidadMedida.getId() );
+        unidadMedidaDto.denominacion( unidadMedida.getDenominacion() );
+
+        return unidadMedidaDto.build();
+    }
+
     protected ArticuloManufacturadoDetalleDto articuloManufacturadoDetalleToArticuloManufacturadoDetalleDto(ArticuloManufacturadoDetalle articuloManufacturadoDetalle) {
         if ( articuloManufacturadoDetalle == null ) {
             return null;
@@ -186,10 +186,10 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
 
         ArticuloManufacturadoDetalleDto.ArticuloManufacturadoDetalleDtoBuilder<?, ?> articuloManufacturadoDetalleDto = ArticuloManufacturadoDetalleDto.builder();
 
-        articuloManufacturadoDetalleDto.id( articuloManufacturadoDetalle.getId() );
         articuloManufacturadoDetalleDto.alta( articuloManufacturadoDetalle.isAlta() );
-        articuloManufacturadoDetalleDto.cantidad( articuloManufacturadoDetalle.getCantidad() );
+        articuloManufacturadoDetalleDto.id( articuloManufacturadoDetalle.getId() );
         articuloManufacturadoDetalleDto.articuloInsumo( iArticuloInsumoMapper.toDTO( articuloManufacturadoDetalle.getArticuloInsumo() ) );
+        articuloManufacturadoDetalleDto.cantidad( articuloManufacturadoDetalle.getCantidad() );
 
         return articuloManufacturadoDetalleDto.build();
     }
@@ -207,6 +207,22 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
         return set1;
     }
 
+    protected Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto) {
+        if ( categoriaDto == null ) {
+            return null;
+        }
+
+        Categoria.CategoriaBuilder<?, ?> categoria = Categoria.builder();
+
+        if ( categoriaDto.getAlta() != null ) {
+            categoria.alta( categoriaDto.getAlta() );
+        }
+        categoria.id( categoriaDto.getId() );
+        categoria.denominacion( categoriaDto.getDenominacion() );
+
+        return categoria.build();
+    }
+
     protected Imagen imagenDtoToImagen(ImagenDto imagenDto) {
         if ( imagenDto == null ) {
             return null;
@@ -214,10 +230,10 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
 
         Imagen.ImagenBuilder<?, ?> imagen = Imagen.builder();
 
-        imagen.id( imagenDto.getId() );
         if ( imagenDto.getAlta() != null ) {
             imagen.alta( imagenDto.getAlta() );
         }
+        imagen.id( imagenDto.getId() );
         imagen.url( imagenDto.getUrl() );
 
         return imagen.build();
@@ -236,38 +252,6 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
         return set1;
     }
 
-    protected UnidadMedida unidadMedidaDtoToUnidadMedida(UnidadMedidaDto unidadMedidaDto) {
-        if ( unidadMedidaDto == null ) {
-            return null;
-        }
-
-        UnidadMedida.UnidadMedidaBuilder<?, ?> unidadMedida = UnidadMedida.builder();
-
-        unidadMedida.id( unidadMedidaDto.getId() );
-        if ( unidadMedidaDto.getAlta() != null ) {
-            unidadMedida.alta( unidadMedidaDto.getAlta() );
-        }
-        unidadMedida.denominacion( unidadMedidaDto.getDenominacion() );
-
-        return unidadMedida.build();
-    }
-
-    protected Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto) {
-        if ( categoriaDto == null ) {
-            return null;
-        }
-
-        Categoria.CategoriaBuilder<?, ?> categoria = Categoria.builder();
-
-        categoria.id( categoriaDto.getId() );
-        if ( categoriaDto.getAlta() != null ) {
-            categoria.alta( categoriaDto.getAlta() );
-        }
-        categoria.denominacion( categoriaDto.getDenominacion() );
-
-        return categoria.build();
-    }
-
     protected Set<PromocionDetalle> promocionDetalleDtoSetToPromocionDetalleSet(Set<PromocionDetalleDto> set) {
         if ( set == null ) {
             return null;
@@ -281,6 +265,22 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
         return set1;
     }
 
+    protected UnidadMedida unidadMedidaDtoToUnidadMedida(UnidadMedidaDto unidadMedidaDto) {
+        if ( unidadMedidaDto == null ) {
+            return null;
+        }
+
+        UnidadMedida.UnidadMedidaBuilder<?, ?> unidadMedida = UnidadMedida.builder();
+
+        if ( unidadMedidaDto.getAlta() != null ) {
+            unidadMedida.alta( unidadMedidaDto.getAlta() );
+        }
+        unidadMedida.id( unidadMedidaDto.getId() );
+        unidadMedida.denominacion( unidadMedidaDto.getDenominacion() );
+
+        return unidadMedida.build();
+    }
+
     protected ArticuloManufacturadoDetalle articuloManufacturadoDetalleDtoToArticuloManufacturadoDetalle(ArticuloManufacturadoDetalleDto articuloManufacturadoDetalleDto) {
         if ( articuloManufacturadoDetalleDto == null ) {
             return null;
@@ -288,12 +288,12 @@ public class IArticuloManufacturadoMapperImpl implements IArticuloManufacturadoM
 
         ArticuloManufacturadoDetalle.ArticuloManufacturadoDetalleBuilder<?, ?> articuloManufacturadoDetalle = ArticuloManufacturadoDetalle.builder();
 
-        articuloManufacturadoDetalle.id( articuloManufacturadoDetalleDto.getId() );
         if ( articuloManufacturadoDetalleDto.getAlta() != null ) {
             articuloManufacturadoDetalle.alta( articuloManufacturadoDetalleDto.getAlta() );
         }
-        articuloManufacturadoDetalle.cantidad( articuloManufacturadoDetalleDto.getCantidad() );
+        articuloManufacturadoDetalle.id( articuloManufacturadoDetalleDto.getId() );
         articuloManufacturadoDetalle.articuloInsumo( iArticuloInsumoMapper.toEntity( articuloManufacturadoDetalleDto.getArticuloInsumo() ) );
+        articuloManufacturadoDetalle.cantidad( articuloManufacturadoDetalleDto.getCantidad() );
 
         return articuloManufacturadoDetalle.build();
     }

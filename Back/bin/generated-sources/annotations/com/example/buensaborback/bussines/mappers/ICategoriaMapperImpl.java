@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-06-07T12:12:06-0300",
-    comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.7.jar, environment: Java 17.0.10 (Oracle Corporation)"
+    date = "2024-06-07T12:39:14-0300",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.38.0.v20240524-2033, environment: Java 17.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class ICategoriaMapperImpl implements ICategoriaMapper {
@@ -23,8 +23,8 @@ public class ICategoriaMapperImpl implements ICategoriaMapper {
 
         CategoriaDto.CategoriaDtoBuilder<?, ?> categoriaDto = CategoriaDto.builder();
 
-        categoriaDto.id( source.getId() );
         categoriaDto.alta( source.isAlta() );
+        categoriaDto.id( source.getId() );
         categoriaDto.denominacion( source.getDenominacion() );
 
         return categoriaDto.build();
@@ -38,10 +38,10 @@ public class ICategoriaMapperImpl implements ICategoriaMapper {
 
         Categoria.CategoriaBuilder<?, ?> categoria = Categoria.builder();
 
-        categoria.id( source.getId() );
         if ( source.getAlta() != null ) {
             categoria.alta( source.getAlta() );
         }
+        categoria.id( source.getId() );
         categoria.denominacion( source.getDenominacion() );
 
         return categoria.build();
